@@ -19,14 +19,13 @@ bot.on('photo', (ctx) => {
                   fs.createWriteStream(`images/${ctx.message.chat.id}.png`),
                 )
                 .on('finish', async () => {
-                   const chatId = -1001669313927
-                   //-1001588907952 chatid du group telegram CryptoLaunch normalement 
+                   const chatId = -1001588907952
                    console.log(ctx)
                    
                    bot.telegram.sendPhoto(chatId,{source: `images/${ctx.message.chat.id}.png`},
                     {caption: ctx.message.caption , caption_entities: ctx.message.caption_entities,  reply_markup : {
                       inline_keyboard: [
-                        [{text: 'Go to chat ', url: 'https://t.me/coin_stalkers'}]
+                        [{text: 'CryptoLaunch group chat 💬', url: 'https://t.me/CryptoLaunchApp'}]
                       ]
                     }}
                     
@@ -49,12 +48,12 @@ bot.on('photo', (ctx) => {
 
 
 bot.on( 'message', (ctx) => {
-        const chatId = -1001669313927
+        const chatId = -1001588907952
         const text = ctx.message.text
         entities = ctx.message.entities
         bot.telegram.sendMessage( chatId, text,{entities: ctx.message.entities, reply_markup: {
             inline_keyboard: [
-                [{text: 'Group chat', url: 'https://t.me/coin_stalkers'}]
+                [{text: 'CryptoLaunch group chat 💬', url: 'https://t.me/CryptoLaunchApp'}]
             ]
         }})
         console.log(ctx.message.chat.id)
